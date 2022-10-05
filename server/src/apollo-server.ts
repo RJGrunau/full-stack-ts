@@ -44,14 +44,15 @@ export async function createApolloServer(
           coverUrl: "",
           avatarUrl: "",
           createdAt: "",
-          updatedAt: ""
+          updatedAt: "",
         }
       },
-      sugestions: () => {
+      suggestions: () => {
         return []
-      }
-    }
+      },
+    },
   }
+  
   const server = new ApolloServer({
     typeDefs,
     resolvers,

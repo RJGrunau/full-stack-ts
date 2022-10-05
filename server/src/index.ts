@@ -23,7 +23,6 @@ async function main() {
 
   app.use('/static', express.static(STATIC_ROOT_FOLDER_PATH));
   const httpServer = createServer(app)
- 
   const apolloServer = await createApolloServer(
     db,
     httpServer,
