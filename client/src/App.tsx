@@ -7,19 +7,21 @@ import Timeline from './Timeline';
 import {gql} from '@apollo/client';
 import { useGetCurrentUserQuery } from "./generated/graphql"
 
-export const GET_CURRENT_USER_QUERY = gql`
+export const GET_CURRENT_USER = gql`
   query GetCurrentUser {
-    id
-    name
-    handle
-    avatarUrl
-    createdAt
-  }
-  suggestions {
-    name
-    handle
-    avatarUrl
-    reason
+    currentUser {
+      id
+      name
+      handle
+      avatarUrl
+      createdAt
+    }
+    suggestions {
+      name
+      handle
+      avatarUrl
+      reason
+    }
   }
 `
 
