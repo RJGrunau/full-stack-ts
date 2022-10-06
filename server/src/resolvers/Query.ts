@@ -1,5 +1,9 @@
+import { TwitterResolverContext } from "../resolvers"
+import { QueryResolvers } from "../resolvers-types.generated"
+
 // your resolvers are extracted here. 
-const queryTwitterResolvers = {
+// Use the generated code to type your query as well. 
+const queryTwitterResolvers: QueryResolvers<TwitterResolverContext> = {
   currentUser: () => {
     return {
       id: "123",
@@ -11,8 +15,24 @@ const queryTwitterResolvers = {
       updatedAt: "",
     }
   },
-  suggestions: () => {
-    return []
+  suggestions: (_,__,{ db: _db }) => {
+    return [
+      {
+        name: "TypeScript Project",
+        handle: "TypeScript",
+        avatarUrl: "http://localhost:3000/static/ts-logo.png",
+        reason: "Because you follow @MichaelLNorth",
+        id: "1",
+      },
+      {
+        name: "jQuery",
+        handle: "jquery",
+        avatarUrl:
+          "http://localhost:3000/static/jquery-logo.jpeg",
+        reason: "Because you follow @FrontendMasters",
+        id: "2",
+      },
+    ]
   },
 }
 export default queryTwitterResolvers
